@@ -1,16 +1,14 @@
 import { useState } from "react"
 import main from "./calculator"
 const fs = require('fs').promises
-const math = require('mathjs')
 
 
 const Solution = () => {
-    const [stl, setStl] = useState('')
+    const [stl] = useState('')
     const [triangleCount, setTriangleCount] = useState(0)
     const [surfaceArea, setSurfaceArea] = useState(0)
 
     const processFile = async () => {
-        console.log('typeof file = ', typeof stl)
         let fileData = fs.readFile(stl, 'utf-8')
         let data = await fileData
         return data
@@ -18,9 +16,7 @@ const Solution = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        console.log('file = ', stl)
-        const data = await processFile(stl)
+        await processFile(stl)
     }
 
     let fileReader
@@ -36,7 +32,11 @@ const Solution = () => {
     const handleChange = (file) => {
         fileReader = new FileReader()
         fileReader.onloadend = handleFileRead
-        fileReader.readAsText(file)
+        try{
+            fileReader.readAsText(file)
+        } catch (e) {
+            console.log('no file uploaded')
+        }
     }
 
     return (
