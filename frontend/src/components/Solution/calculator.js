@@ -52,10 +52,10 @@ const getObject = (data) => {
 
 const main = async (data) => {
     let dataObject = getObject(data)
-
+    
     let totalArea = 0
     let triangleCount = 0
-
+    
     while (dataObject.facets.length) {
             // there are still facets to add
             let facet = dataObject.facets[0]
