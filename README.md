@@ -1,7 +1,7 @@
 Triangles-Counter
 
 To set up Locally
-1. Git clone https://github.com/jordan-bohmbach/triangles-counter
-2. CD frontend
-3. NPM install
-4. NPM start
+1. git clone https://github.com/jordan-bohmbach/triangles-counter
+2. cd triangles-counter/frontend 
+3. npm install
+4. npm start
