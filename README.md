@@ -34,7 +34,7 @@ Triangles-Counter
       - The solution to this is instead of splicing out the data, we sould have an index that we keep track of and increase the size of. Indexing into the array is O(1) so this would reduce the overall time complexity to O(N)
   - Calculating triangle count and total area from the Data Object
     - Same as the creation of the data object, this is O(N^2) time complexity because the implementation loops over the facets in the dataObject and then splices them out in the loop.
-      - The solution again is the re-factor and make a variable to keep track of the index so that we can index into the facets array in O(1) time.
+      - The solution again is the re-factor and make a variable to keep track of the index so that we can index into the facets array in O(1) time making the overall solution O(N).
 
 3. O(N) time complexity is the best that can be achieved for this because the solution will always need to proecess every facet so the solution time will always be proportional to the number of facets.
 4. Space complexity could be reduced by not creating the dataObject, however, the dataObject makes the code much more extensible because we have all of the information available to us in a nicely structured JavaScript object.
