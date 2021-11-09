@@ -13,15 +13,16 @@ Triangles-Counter
   - getVectorMagnitude (given a vector return the magnitude of the vector)
   - getTriangelArea (given an [x,y,z] array for 3 corners, return the surface area of the triangel)
 3. Parse the .stl file into a local data object. With all the data including the normal vector in a useable format, this provides for extensability
-  ```{'type' : 'solid',
-      'name' : 'simplePart',
-      'facets' : [{'normal' : [0, 0, 0],
-                   'vertex1' : [0, 0, 0],
-                   'vertex2' : [1, 0, 0],
-                   'vertex3' : [1, 1, 1]},
-                   ...
-                   { ...lastFacet}]
-     }
+  ```
+  {'type' : 'solid',
+   'name' : 'simplePart',
+   'facets' : [{'normal' : [0, 0, 0],
+                'vertex1' : [0, 0, 0],
+                'vertex2' : [1, 0, 0],
+                'vertex3' : [1, 1, 1]},
+                ...
+                { ...lastFacet}]
+  }
   ```
 
 # Performance improvements
