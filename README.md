@@ -30,7 +30,7 @@ Triangles-Counter
   - The way I have implemented this, when a file is uploaded, the whole thing is read at once by awaiting asynchronous filedata using the fs.promises library. By changing this to a read stream, we could process the data as it is read instead of in one big chunk. For larger .stl files this may have performance benefits.
 2. Time Complexity
   - Creating the Data Object
-    - In creating the data object, we loop over the data read from the file after splitting on the newlines. The loop is O(N) time complexity, the split is also O(N) but since we can assume the short length every time due to standard .stl files, this is effectively O(1). Once we parse out the facet, we splice that data out of the dataobject. Splice is O(N) so the overall time complexity is O(N^2) which will degrade performance for larger stl files.
+    - In creating the data object, we loop over the data read from the file after splitting on the newlines. The loop is O(N) time complexity, the split is also typically O(N) but since the .stl files are standard and it is a small string, this is effectively O(1). Once we parse out the facet, we splice that data out of the dataobject. Splice is O(N) so the overall time complexity is O(N^2) which will degrade performance for larger stl files.
       - The solution to this is instead of splicing out the data, we sould have an index that we keep track of and increase the size of. Indexing into the array is O(1) so this would reduce the overall time complexity to O(N)
   - Calculating triangle count and total area from the Data Object
     - Same as the creation of the data object, this is O(N^2) time complexity because the implementation loops over the facets in the dataObject and then splices them out in the loop.
