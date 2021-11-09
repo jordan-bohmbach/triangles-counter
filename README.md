@@ -32,5 +32,9 @@ Triangles-Counter
   - Creating the Data Object
     - In creating the data object, we loop over the data read from the file after splitting on the newlines. The loop is O(N) time complexity, the split is also O(N) but since we can assume the short length every time due to standard .stl files, this is effectively O(1). Once we parse out the facet, we splice that data out of the dataobject. Splice is O(N) so the overall time complexity is O(N^2) which will degrade performance for larger stl files.
       - The solution to this is instead of splicing out the data, we sould have an index that we keep track of and increase the size of. Indexing into the array is O(1) so this would reduce the overall time complexity to O(N)
-  
   - Calculating triangle count and total area from the Data Object
+    - Same as the creation of the data object, this is O(N^2) time complexity because the implementation loops over the facets in the dataObject and then splices them out in the loop.
+      - The solution again is the re-factor and make a variable to keep track of the index so that we can index into the facets array in O(1) time.
+
+3. O(N) time complexity is the best that can be achieved for this because the solution will always need to proecess every facet so the solution time will always be proportional to the number of facets.
+4. Space complexity could be reduced by not creating the dataObject, however, the dataObject makes the code much more extensible because we have all of the information available to us in a nicely structured JavaScript object.
